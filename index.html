@@ -3382,147 +3382,157 @@
                 <section class="hp--bottom-content-1 d-flex fl-col">
                     <section class="hp--awards industries-section" id="industries">
                         <style>
-                            .industries-section h2.title { color: #ffffff !important; }
-                            .industries-section .item { 
-                                background: #ffffff !important; 
-                                border-radius: 20px !important; 
-                                overflow: hidden; 
-                                box-shadow: 0 15px 40px rgba(0,0,0,0.15) !important;
-                                display: flex;
-                                flex-direction: column;
-                                transition: transform 0.3s ease;
+                            .industries-section { background: #F5F6F8 !important; padding: 100px 0 !important; position: relative; }
+                            .industries-section .title { color: #111827 !important; font-size: 36px !important; font-weight: 800 !important; margin-bottom: 60px !important; text-align: center !important; letter-spacing: -0.02em; }
+                            .industries-section .title mark { background: transparent; color: #6366F1; position: relative; }
+                            .industries-section .industries-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+                            
+                            .industry-card-v2 { background: #FFFFFF; border-radius: 24px; border: 1px solid #E5E7EB; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; height: 100%; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+                            .industry-card-v2:hover { transform: translateY(-12px); box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.15); border-color: #6366F1; }
+                            
+                            .industry-card-v2__image { position: relative; height: 220px; overflow: hidden; }
+                            .industry-card-v2__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+                            .industry-card-v2:hover .industry-card-v2__image img { transform: scale(1.1); }
+                            .industry-card-v2__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.5) 100%); opacity: 0; transition: opacity 0.3s ease; }
+                            .industry-card-v2:hover .industry-card-v2__overlay { opacity: 1; }
+                            
+                            .industry-card-v2__body { padding: 32px; flex-grow: 1; display: flex; flex-direction: column; }
+                            .industry-card-v2__icon-box { width: 52px; height: 52px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; transition: all 0.3s ease; box-shadow: 0 8px 16px rgba(0,0,0,0.05); }
+                            .industry-card-v2:hover .industry-card-v2__icon-box { transform: scale(1.1) rotate(4deg); }
+                            
+                            .industry-card-v2__title { font-size: 20px; font-weight: 700; color: #111827; margin-bottom: 8px; line-height: 1.3; }
+                            .industry-card-v2__label { font-size: 13px; font-weight: 700; color: #6B7280; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.08em; display: flex; align-items: center; gap: 8px; }
+                            .industry-card-v2__label::after { content: ''; height: 2px; width: 24px; background: currentColor; opacity: 0.2; }
+                            
+                            .industry-card-v2__list { list-style: none; padding: 0; margin: 0 0 28px 0; }
+                            .industry-card-v2__item { display: flex; align-items: center; gap: 12px; color: #4B5563; font-size: 15px; margin-bottom: 14px; font-weight: 500; }
+                            .industry-card-v2__check { width: 24px; height: 24px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+                            
+                            .industry-card-v2__footer { margin-top: auto; padding: 16px 20px; border-radius: 16px; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 12px; line-height: 1.4; border: 1px solid transparent; }
+                            
+                            /* Colors */
+                            .card-blue .industry-card-v2__icon-box { background: #E0F2FE; color: #0EA5E9; }
+                            .card-blue .industry-card-v2__check { background: #E0F2FE; color: #0EA5E9; }
+                            .card-blue .industry-card-v2__footer { background: #F0F9FF; color: #0369A1; border-color: #BAE6FD; }
+                            
+                            .card-amber .industry-card-v2__icon-box { background: #FFFBEB; color: #D97706; }
+                            .card-amber .industry-card-v2__check { background: #FFFBEB; color: #D97706; }
+                            .card-amber .industry-card-v2__footer { background: #FFFBEB; color: #B45309; border-color: #FEF3C7; }
+                            
+                            .card-indigo .industry-card-v2__icon-box { background: #EEF2FF; color: #6366F1; }
+                            .card-indigo .industry-card-v2__check { background: #EEF2FF; color: #6366F1; }
+                            .card-indigo .industry-card-v2__footer { background: #F5F3FF; color: #4338CA; border-color: #DDD6FE; }
+
+                            @media (max-width: 1024px) {
+                                .industries-section .industries-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
                             }
-                            .industries-section .item:hover {
-                                transform: translateY(-8px);
-                            }
-                            .industries-section .item-img {
-                                height: 260px; 
-                                width: 100%;
-                            }
-                            .industries-section .item-inner { margin-bottom: 0 !important; }
-                            .industries-section .item-data { padding: 30px !important; height: 100%; }
-                            .industries-section .item-title h4 { color: #111827 !important; font-size: 22px; }
-                            .industries-section .industry-content { margin-top: 5px; font-size: 15px; line-height: 1.6; }
-                            .industries-section .industry-content .highlight-heading { color: #111827 !important; font-weight: 800; margin-bottom: 12px; font-size: 16px; }
-                            .industries-section .industry-content ul { list-style: none; padding-left: 0; margin-bottom: 25px; }
-                            .industries-section .industry-content ul li { color: #4b5563 !important; position: relative; padding-left: 20px; margin-bottom: 8px; font-weight: 500; }
-                            .industries-section .industry-content ul li span { position: absolute; left: 0; color: #4300ff; font-weight: bold; } 
-                            .industries-section .industry-content .warning-text { 
-                                color: #dc2626 !important; 
-                                font-weight: 600; 
-                                background: #fef2f2;
-                                padding: 14px 18px;
-                                border-radius: 12px;
-                                margin-top: auto;
-                                font-size: 14px;
-                                border: 1px solid #fee2e2;
-                            }
-                            @media screen and (max-width: 1024px) {
-                                .mobile-scrollable-row {
-                                    flex-wrap: nowrap !important;
-                                    overflow-x: auto;
-                                    justify-content: flex-start !important;
-                                    padding-bottom: 30px;
-                                    padding-top: 10px;
-                                    scroll-snap-type: x mandatory;
-                                    -webkit-overflow-scrolling: touch;
-                                }
-                                .mobile-scrollable-row::-webkit-scrollbar {
-                                    height: 6px;
-                                }
-                                .mobile-scrollable-row::-webkit-scrollbar-track {
-                                    background: rgba(255, 255, 255, 0.1);
-                                    border-radius: 6px;
-                                }
-                                .mobile-scrollable-row::-webkit-scrollbar-thumb {
-                                    background: rgba(255, 255, 255, 0.4);
-                                    border-radius: 6px;
-                                }
-                                .mobile-scrollable-row .item {
-                                    flex: 0 0 85% !important;
-                                    max-width: 85% !important;
-                                    scroll-snap-align: center;
-                                }
+                            @media (max-width: 768px) {
+                                .industries-section { padding: 60px 0 !important; }
+                                .industries-section .industries-grid { grid-template-columns: 1fr; gap: 24px; }
+                                .industries-section .title { font-size: 28px !important; margin-bottom: 40px !important; }
                             }
                         </style>
                         <div class="site-width-grid">
-                            <div class="holder d-flex fl-align-center fl-col">
-                                <h2 class="title" style="margin-bottom: 40px;">Industries we have worked with</h2>
-                                <div class="inner d-flex fl-col" style="width: 100%;">
-                                    <section style="width: 100%;">
-                                        <div class="categories d-flex active mobile-scrollable-row" style="gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 0;">
-                                            
-                                            <!-- Doctors & Clinics -->
-                                            <div class="item" style="flex: 1; min-width: 320px; max-width: 450px;">
-                                                <div class="item-inner">
-                                                    <div class="item-img" style="display: block; overflow: hidden;">
-                                                        <img width="450" height="300" loading="lazy" src="images/industries/doctor_clinic.png" alt="For Doctors & Clinics" style="width: 100%; height: 100%; object-fit: cover;">
-                                                    </div>
-                                                </div>
-                                                <div class="item-data d-flex fl-col fl-grow">
-                                                    <div class="item-title" style="margin-bottom: 15px;">
-                                                        <h4><strong>For Doctors & Clinics</strong></h4>
-                                                    </div>
-                                                    <div class="industry-content d-flex fl-col fl-grow">
-                                                        <p class="highlight-heading">We bring:</p>
-                                                        <ul>
-                                                            <li><span>✓</span> Real patients</li>
-                                                            <li><span>✓</span> Procedure inquiries</li>
-                                                            <li><span>✓</span> High-value treatment bookings</li>
-                                                        </ul>
-                                                        <div class="warning-text">Not people just asking for free advice.</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Manufacturers & Wholesalers -->
-                                            <div class="item" style="flex: 1; min-width: 320px; max-width: 450px;">
-                                                <div class="item-inner">
-                                                    <div class="item-img" style="display: block; overflow: hidden;">
-                                                        <img width="450" height="300" loading="lazy" src="images/industries/manufacturer.png" alt="For Manufacturers & Wholesalers" style="width: 100%; height: 100%; object-fit: cover;">
-                                                    </div>
-                                                </div>
-                                                <div class="item-data d-flex fl-col fl-grow">
-                                                    <div class="item-title" style="margin-bottom: 15px;">
-                                                        <h4><strong>For Manufacturers & Wholesalers</strong></h4>
-                                                    </div>
-                                                    <div class="industry-content d-flex fl-col fl-grow">
-                                                        <p class="highlight-heading">We bring:</p>
-                                                        <ul>
-                                                            <li><span>✓</span> Distributors</li>
-                                                            <li><span>✓</span> Bulk buyers</li>
-                                                            <li><span>✓</span> Repeat B2B clients</li>
-                                                        </ul>
-                                                        <div class="warning-text">Not people who ask only for price.</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- IT & Service Companies -->
-                                            <div class="item" style="flex: 1; min-width: 320px; max-width: 450px;">
-                                                <div class="item-inner">
-                                                    <div class="item-img" style="display: block; overflow: hidden;">
-                                                        <img width="450" height="300" loading="lazy" src="images/industries/it_services.png" alt="For IT & Service Companies" style="width: 100%; height: 100%; object-fit: cover;">
-                                                    </div>
-                                                </div>
-                                                <div class="item-data d-flex fl-col fl-grow">
-                                                    <div class="item-title" style="margin-bottom: 15px;">
-                                                        <h4><strong>For IT & Service Companies</strong></h4>
-                                                    </div>
-                                                    <div class="industry-content d-flex fl-col fl-grow">
-                                                        <p class="highlight-heading">We bring:</p>
-                                                        <ul>
-                                                            <li><span>✓</span> Business owners</li>
-                                                            <li><span>✓</span> Decision-makers</li>
-                                                            <li><span>✓</span> Long-term clients</li>
-                                                        </ul>
-                                                        <div class="warning-text">Not freelancers wasting your time.</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
+                            <h2 class="title">Industries We Have <mark>Mastered</mark></h2>
+                            
+                            <div class="industries-grid">
+                                <!-- Card 1: Doctors & Clinics -->
+                                <div class="industry-card-v2 card-blue">
+                                    <div class="industry-card-v2__image">
+                                        <img width="450" height="300" loading="lazy" src="images/industries/doctor_clinic.png" alt="For Doctors & Clinics">
+                                        <div class="industry-card-v2__overlay"></div>
+                                    </div>
+                                    <div class="industry-card-v2__body">
+                                        <div class="industry-card-v2__icon-box">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                                         </div>
-                                    </section>
+                                        <div class="industry-card-v2__label">Healthcare Specialists</div>
+                                        <h3 class="industry-card-v2__title">Doctors & Medical Clinics</h3>
+                                        <ul class="industry-card-v2__list">
+                                            <li class="industry-card-v2__item">
+                                                <div class="industry-card-v2__check">✓</div>
+                                                Qualified Patient Leads
+                                            </li>
+                                            <li class="industry-card-v2__item">
+                                                <div class="industry-card-v2__check">✓</div>
+                                                Procedure-Specific Inquiries
+                                            </li>
+                                            <li class="industry-card-v2__item">
+                                                <div class="industry-card-v2__check">✓</div>
+                                                High-Value Therapy Bookings
+                                            </li>
+                                        </ul>
+                                        <div class="industry-card-v2__footer">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                            Zero time wasted on people seeking free advice.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2: Manufacturers & Wholesalers -->
+                                <div class="industry-card-v2 card-amber">
+                                    <div class="industry-card-v2__image">
+                                        <img width="450" height="300" loading="lazy" src="images/industries/manufacturer.png" alt="For Manufacturers & Wholesalers">
+                                        <div class="industry-card-v2__overlay"></div>
+                                    </div>
+                                    <div class="industry-card-v2__body">
+                                        <div class="industry-card-v2__icon-box">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+                                        </div>
+                                        <div class="industry-card-v2__label">Supply Chain & B2B</div>
+                                        <h3 class="industry-card-v2__title">Manufacturers & Wholesalers</h3>
+                                        <ul class="industry-card-v2__list">
+                                            <li class="industry-card-v2__item">
+                                                <div class="industry-card-v2__check">✓</div>
+                                                National & Global Distributors
+                                            </li>
+                                            <li class="industry-card-v2__item">
+                                                <div class="industry-card-v2__check">✓</div>
+                                                Verified Bulk Inventory Buyers
+                                            </li>
+                                            <li class="industry-card-v2__item">
+                                                <div class="industry-card-v2__check">✓</div>
+                                                Long-term B2B Relationships
+                                            </li>
+                                        </ul>
+                                        <div class="industry-card-v2__footer">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                            No more low-margin price hunters.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3: IT & Service Companies -->
+                                <div class="industry-card-v2 card-indigo">
+                                    <div class="industry-card-v2__image">
+                                        <img width="450" height="300" loading="lazy" src="images/industries/it_services.png" alt="For IT & Service Companies">
+                                        <div class="industry-card-v2__overlay"></div>
+                                    </div>
+                                    <div class="industry-card-v2__body">
+                                        <div class="industry-card-v2__icon-box">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><path d="M9 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M15 3v18"/></svg>
+                                        </div>
+                                        <div class="industry-card-v2__label">Digital Economy</div>
+                                        <h3 class="industry-card-v2__title">IT & Digital Service Firms</h3>
+                                        <ul class="industry-card-v2__list">
+                                            <li class="industry-card-v2__item">
+                                                <div class="industry-card-v2__check">✓</div>
+                                                Qualified Decision Makers
+                                            </li>
+                                            <li class="industry-card-v2__item">
+                                                <div class="industry-card-v2__check">✓</div>
+                                                High-Budget SaaS Contracts
+                                            </li>
+                                            <li class="industry-card-v2__item">
+                                                <div class="industry-card-v2__check">✓</div>
+                                                Strategic Enterprise Partnerships
+                                            </li>
+                                        </ul>
+                                        <div class="industry-card-v2__footer">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                            Eliminate freelancers wasting your time.
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
