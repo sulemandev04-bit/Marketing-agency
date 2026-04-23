@@ -129,60 +129,58 @@
         style="display:none;visibility:hidden"></iframe></noscript>
 <div class="app">
     <div id="site-wrapper" class="wrapper d-flex fl-col">
-        <header id="site-header" class="fancy-header">
+        <nav class="laptop-hide" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
             <div class="site-width-grid">
-                <div id="headerMenu" class="holder d-flex fl-align-center">
-                    <div class="logo fl-shrink"><a href="/"><img src="images/logo/logo.png" alt="First Option Agency"
-                                width="210" height="52" data-pin-nopin="true"></a></div>
-                    <div class="inner d-flex fl-align-center">
-                        <nav class="nav d-flex">
-                            <div class="js-menu-clone-target laptop-view"></div>
+                <div class="holder d-flex fl-align-center" style="justify-content: space-between; width: 100%; height: 80px;">
+                    
+                    <div class="logo fl-shrink">
+                        <a href="/">
+                            <img src="images/logo/logo.png" alt="First Option Agency" width="210" height="52" data-pin-nopin="true">
+                        </a>
+                    </div>
 
-                        </nav>
+                    <div class="hp--navigation d-flex fl-center" style="flex-grow: 1;">
+                        <ul class="list menu d-flex fl-align-center js-menu-clone-template" style="margin: 0 auto; padding: 0; list-style: none;">
+                            <li class="link-holder"><a class="link" href="index.html#site-wrapper">Home</a></li>
+                            <li class="link-holder"><a class="link" href="index.html">About Us</a></li>
+                            <li class="link-holder"><a class="link" href="index.html#process">How It Works</a></li>
+                            <li class="link-holder"><a class="link" href="service.html">Services</a></li>
+                        </ul>
+                    </div>
 
-                    </div><button id="burger" class="burger laptop-view" type="button"
-                        aria-label="Burger Navigation"><span></span></button>
+                    <div class="cta fl-shrink">
+                        <a href="https://wa.me/919765768571" target="_blank"
+                            class="d-i-flex fl-center btn-fancy btn-fancy--green btn-fancy--uppercase btn-fancy--medium btn-fancy--text-sm btn-fancy--xs btn-fancy--gap-md btn-fancy--px-lg"
+                            style="text-decoration: none;">
+                            <span style="display: flex; align-items: center; gap: 8px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+                                </svg>
+                                Schedule Your Strategy Call
+                            </span>
+                        </a>
+                    </div>
+
                 </div>
             </div>
-        </header>
-        <script
-            type="text/javascript"> document.getElementById('site-header').classList[window.scrollY > 10 ? 'add' : 'remove']('scrolled'); window.addEventListener('scroll', function () { document.getElementById('site-header').classList[window.scrollY > 10 ? 'add' : 'remove']('scrolled'); })</script>
+        </nav>
+
+        <!-- <script type="text/javascript">
+            window.addEventListener('scroll', function () {
+                const header = document.getElementById('site-header');
+                if (window.scrollY > 10) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        </script> -->
         <main class="main d-flex fl-col fl-grow" id="main">
             <div class="d-flex fl-col fl-grow">
                 <section class="hp--hero">
-                    <nav class="laptop-hide">
-                        <div class="site-width-grid">
-                            <div class="holder d-flex fl-align-center">
-                                <div class="hp--navigation">
-                                    <ul class="list menu d-flex fl-align-center js-menu-clone-template ">
-                                        <li class="link-holder"><a class="link" href="index.html#site-wrapper">Home</a>
-                                        </li>
-                                        <li class="link-holder"><a class="link" href="index.html#about">About Us</a>
-                                        </li>
-                                        <!-- <li class="link-holder">
-                                            <a class="link d-i-flex fl-align-center" href="services.html">Services</a>
-                                        </li> -->
-                                        <li class="link-holder"><a class="link" href="index.html#process">How It
-                                                Works</a></li>
-                                        <li class="link-holder"><a class="link"
-                                                href="index.html#industries">Industries</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="cta fl-shrink"><a href="https://wa.me/919765768571" target="_blank"
-                                        class="d-i-flex fl-center btn-fancy btn-fancy--green btn-fancy--uppercase btn-fancy--medium btn-fancy--text-sm btn-fancy--xs btn-fancy--gap-md btn-fancy--px-lg"
-                                        style="text-decoration: none;">
-                                        <span style="display: flex; align-items: center; gap: 8px;">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-                                            </svg>
-                                            Schedule Your Strategy Call
-                                        </span></a></div>
-                            </div>
-                        </div>
-                    </nav>
+                 
                     <div class="site-width-grid">
                         <div class="inner">
                             <div class="subtitle">Smart Funnels That Drive Customers
