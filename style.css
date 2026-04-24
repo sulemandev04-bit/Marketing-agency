@@ -1542,16 +1542,10 @@ form[data-parsley-validate] { position: relative; }
 }
 /* end desktop button */
 
-.myclass {
-    display: flex;
-    flex-direction: column; /* Isse ek ke niche ek aayenge */
-    align-items: center;    /* Center karne ke liye */
-    gap: 20px;             /* Divs ke beech me thodi jagah ke liye */
-}
-
-.heding {
-    font-size: 2rem;       /* Mobile par size chota rakhein */
-    text-align: center;
+/* Text side styling */
+.myclass1 {
+    flex: 1;
+    text-align: left;
 }
 
 /* Heading style */
@@ -1602,6 +1596,22 @@ form[data-parsley-validate] { position: relative; }
     
     .heding {
         font-size: 3.5rem; /* Badi screen par bada heading */
+    }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .myclass1 {
+        text-align: center; /* Heading aur Paragraph dono ko center karega */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .para1 {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
