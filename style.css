@@ -1542,10 +1542,16 @@ form[data-parsley-validate] { position: relative; }
 }
 /* end desktop button */
 
-/* Text side styling */
-.myclass1 {
-    flex: 1;
-    text-align: left;
+.myclass {
+    display: flex;
+    flex-direction: column; /* Isse ek ke niche ek aayenge */
+    align-items: center;    /* Center karne ke liye */
+    gap: 20px;             /* Divs ke beech me thodi jagah ke liye */
+}
+
+.heding {
+    font-size: 2rem;       /* Mobile par size chota rakhein */
+    text-align: center;
 }
 
 /* Heading style */
